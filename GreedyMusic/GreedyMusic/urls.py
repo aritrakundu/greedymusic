@@ -33,10 +33,11 @@ urlpatterns = [
     url(r'^genre/(?P<genreid>[0-9]+)/$', views.get_genre, name='view_get_genre'),
     url(r'^genres/add/$', views.add_genre, name='view_add_genre'),
     url(r'^genres/rename/$', views.rename_genre, name='view_rename_genre'),
-    url(r'^.*$', views.page_not_found, name='view-404-page'),
 ]
 
 DEBUG = os.environ.get('DEBUG', False)
 if not DEBUG:
 	urlpatterns.append(url(r'^static/(?P<path>.*)$', serve,
         {'document_root': settings.STATIC_ROOT}))
+
+urlpatterns.append(url(r'^.*$', views.page_not_found, name='view-404-page'))
