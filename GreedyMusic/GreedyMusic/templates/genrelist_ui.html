@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<div class="container" id="genre-container">
+<div class="container container-outer">
+    <div id="navigation" style="text-align: center">
+        <ul>
+            <li><a href="{{ url_tracklist_ui }}">Tracks</a></li>
+            <li><a href="{{ url_genrelist_ui }}">Genres</a></li>
+        </ul>
+    </div>
+    <blockquote class="quote-box">
+    <div class="row">    
+      
+      <p class="quotation-mark"> Genres </p>
+      <hr/>
+      <div>
+        {% if genres %}
+        {% for genre in genres %}
+        <div>
+          <p>{{ genre.genre_name }}
+          
+            <a href="/genre/{{ genre.id }}/" class="btn btn-default btn-xs btn-round btn-right" 
+            title="Rename Genre">
+              <span class="glyphicon glyphicon-pencil"></span>
+            </a>
+          </p>
+        </div>
+        <hr/>
+        {% endfor %}
+        
+        {% else %}
+          <div>
+          <p> Tracklist empty</p>
+        </div>
+        <hr/>
+        {% endif %}
+        
+
+      <div class="bottom-row">
+      <button type="button" class="btn btn-default btn-xs btn-round btn-ctr" title="Add Genre"      id="add-btn" onclick="showdiv()">
+              <span class="glyphicon glyphicon-plus"></span>
+            </button>
+      </div>
+
+    </blockquote>
+</div>
+</div>
+
+<div class="container" id="add-form-container" style="display:none;">
+<div class="container container-outer">
+<blockquote class="quote-box">
+  <p class="quotation-mark"> Genre Details </p>
+  <hr/> 
+  <div class="text-center" style="padding:10px 10px">
+  <!-- <div class="logo">login</div> -->
+  <!-- Main Form -->
+  <div class="login-form-1">
+    <form id="track_form" class="text-left" method="post" action="{{ url_add_genre }}">
+    {% csrf_token %}
+      <div class="login-form-main-message"></div>
+      <div class="main-login-form">
+        <div class="login-group">
+          <div class="form-group">
+            
+            <label for="track_title" class="sr-only">Genre Title</label>
+            <input type="text" class="form-control" id="genre_name" name="genre_name" 
+            placeholder="Genre Title">
+          </div>
+
+          
+      <div class="form-control">
+        <button type="submit" class="login-button">Go</button>
+      </div>
+      </div>
+ 
+    </form>
+  </div>
+  <!-- end:Main Form -->
+</div>
+
+</blockquote>
+</div>
+</div>
+
+{% endblock %}

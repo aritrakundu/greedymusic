@@ -1,0 +1,228 @@
+/*----------------------------*/
+#navigation ul
+{
+    margin: 0;
+    padding: 0;
+}
+
+#navigation ul li
+{
+    list-style-type: none;
+    display: inline;
+}
+
+#navigation ul li
+{
+  font-size: large;
+}
+
+#navigation li:before {
+content: " | ";
+}
+
+#navigation li:first-child:before {
+content: none;
+}
+/*---------------------*/
+
+blockquote{
+    border-left:none
+}
+
+hr
+{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+
+.bottom-row
+{
+    text-align: center;
+}
+
+.btn-right
+{
+    float: right;
+}
+
+.btn-ctr
+{
+   margin: auto;
+   display: block;
+}
+
+.btn-round {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.btn-round.btn-xs {
+    width: 24px;
+    height: 24px;
+}
+
+.quote-badge{
+    background-color: rgba(0, 0, 0, 0.2);   
+}
+
+.quote-box{
+    
+    overflow: hidden;
+    /*margin-top: -50px;*/
+    /*padding-top: -100px;*/
+    padding-left: 10%;
+    padding-right: 10%;
+    border-radius: 17px;
+    background-color: #4ADFCC;
+    /*margin-top: 25px;*/
+    color:white;
+    /*width: 325px;*/
+    box-shadow: 2px 2px 2px 2px #E0E0E0;
+    
+}
+
+.quotation-mark{
+    
+    /*margin-top: -10px;*/
+    font-weight: bold;
+    font-size: 30px;
+    color: white;
+    font-family: "Times New Roman", Georgia, Serif;
+    vertical-align: text-bottom;  
+    text-align: center;  
+}
+
+.quote-text{
+    
+    font-size: 19px;
+    margin-top: -65px;
+}
+
+.container-outer
+{
+    width: 60%;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 10%;
+    padding-bottom: 10%;
+    /*
+    margin-bottom: 20%;
+    */
+}
+
+.container-inner
+{
+    width: 95%
+}
+
+
+/*Testing css */
+
+
+/*=== 4. Main Form ===*/
+.login-form-1 {
+  max-width: 300px;
+  border-radius: 5px;
+  display: inline-block;
+}
+.main-login-form {
+  position: relative;
+}
+.login-form-1 .form-control {
+  border: 0;
+  box-shadow: 0 0 0;
+  border-radius: 0;
+  background: transparent;
+  color: #555555;
+  padding: 7px 0;
+  font-weight: bold;
+  height:auto;
+}
+.login-form-1 .form-control::-webkit-input-placeholder {
+  color: #999999;
+}
+.login-form-1 .form-control:-moz-placeholder,
+.login-form-1 .form-control::-moz-placeholder,
+.login-form-1 .form-control:-ms-input-placeholder {
+  color: #999999;
+}
+.login-form-1 .form-group {
+  margin-bottom: 0;
+  border-bottom: 2px solid #efefef;
+  padding-right: 20px;
+  position: relative;
+}
+.login-form-1 .form-group:last-child {
+  border-bottom: 0;
+}
+.login-group {
+  background: #ffffff;
+  color: #999999;
+  border-radius: 8px;
+  padding: 20px 20px;
+}
+
+/*=== 5. Login Button ===*/
+.login-form-1 .login-button {
+  /*position: relative;*/
+  /*right: -25px;*/
+  /*top: 50%;*/
+  margin-left: 36%;
+  background: #4ADFCC;
+  color: #999999;
+  /*padding: 11px 0;*/
+  width: 50px;
+  height: 50px;
+  /*margin-top: -25px;*/
+  border: 5px solid #efefef;
+  border-radius: 50%;
+  transition: all ease-in-out 500ms;
+}
+
+
+/* -------------css for search bar-------------*/
+body {
+    padding-top: 50px;
+}
+.dropdown.dropdown-lg .dropdown-menu {
+    margin-top: -1px;
+    padding: 6px 20px;
+}
+.input-group-btn .btn-group {
+    display: flex !important;
+}
+.btn-group .btn {
+    border-radius: 0;
+    margin-left: -1px;
+}
+.btn-group .btn:last-child {
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+.btn-group .form-horizontal .btn[type="submit"] {
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+.form-horizontal .form-group {
+    margin-left: 0;
+    margin-right: 0;
+}
+.form-group .form-control:last-child {
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+
+@media screen and (min-width: 768px) {
+    #adv-search {
+        width: 500px;
+        margin: 0 auto;
+    }
+    .dropdown.dropdown-lg {
+        position: static !important;
+    }
+    .dropdown.dropdown-lg .dropdown-menu {
+        min-width: 500px;
+    }
+}

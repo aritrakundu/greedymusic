@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+
+<div class="container" id="edit-form-container">
+<div class="container container-outer">
+<blockquote class="quote-box">
+  <p class="quotation-mark"> Genre Details </p>
+  <hr/> 
+  <div class="text-center" style="padding:10px 10px">
+  <!-- <div class="logo">login</div> -->
+  <!-- Main Form -->
+  <div class="login-form-1">
+    <form id="genre_form" class="text-left" method="post" action="{{ url_rename_genre }}">
+    {% csrf_token %}
+      <div class="login-form-main-message"></div>
+      <div class="main-login-form">
+        <div class="login-group">
+          <div class="form-group">
+            
+            <label for="track_title" class="sr-only">Track Title</label>
+            <input type="text" class="form-control" value="{{ genre_title }}" 
+            id="genre_name" name="genre_name" 
+            placeholder="Genre Title">
+          </div>
+
+          
+          <input type="hidden" name="id" value="{{ genre_id }}"> 
+        </div>
+      <div class="form-control">
+        <button type="submit" class="login-button">Go</button>
+      </div>
+      </div>
+ 
+    </form>
+  </div>
+  <!-- end:Main Form -->
+</div>
+
+</blockquote>
+</div>
+</div>
+{% endblock %}

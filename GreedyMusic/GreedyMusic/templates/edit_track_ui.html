@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+
+<div class="container" id="edit-form-container">
+<div class="container container-outer">
+<blockquote class="quote-box">
+  <p class="quotation-mark"> Track Details </p>
+  <hr/> 
+  <div class="text-center" style="padding:10px 10px">
+  <!-- <div class="logo">login</div> -->
+  <!-- Main Form -->
+  <div class="login-form-1">
+    <form id="track_form" class="text-left" method="post" action="{{ url_edit_track }}">
+    {% csrf_token %}
+      <div class="login-form-main-message"></div>
+      <div class="main-login-form">
+        <div class="login-group">
+          <div class="form-group">
+            
+            <label for="track_title" class="sr-only">Track Title</label>
+            <input type="text" class="form-control" value="{{ track_title }}" 
+            id="track_title" name="track_title" 
+            placeholder="Track Title">
+          </div>
+
+          <div class="form-group">
+            <label for="track_genre" class="sr-only">Track Genre</label>
+            <input type="text" class="form-control" value="{{ track_genre }}" 
+            id="genre_name" name="genre_name" 
+            placeholder="Track Genre">
+          </div>
+
+          <div class="form-group">
+            <label for="track_rating" class="sr-only">Rating</label>
+            <label class="radio-inline" for="track_rating" id="track_rating" name="track_rating" >
+              <input name="genre_name" id="1" value="1" type="radio"
+              {% if track_rating == '1' %} checked="checked"{% endif %}>
+              1
+            </label> 
+            <label class="radio-inline" for="radios-2">
+              <input name="track_rating" id="2" value="2" type="radio"
+              {% if track_rating == '2' %} checked="checked"{% endif %}>
+              2
+            </label> 
+            <label class="radio-inline" for="radios-3">
+              <input name="track_rating" id="3" value="3" type="radio"
+              {% if track_rating == '3' %} checked="checked"{% endif %}>
+              3
+            </label> 
+            <label class="radio-inline" for="radios-4">
+              <input name="track_rating" id="4" value="4" type="radio"
+              {% if track_rating == '4' %} checked="checked"{% endif %}>
+              4
+          </label>
+          <label class="radio-inline" for="radios-5">
+              <input name="track_rating" id="5" value="5" type="radio"
+              {% if track_rating == '5' %} checked="checked"{% endif %}>
+              5
+          </label>
+          <input type="hidden" name="id" value="{{ track_id }}"> 
+        </div>
+      <div class="form-control">
+        <button type="submit" class="login-button">Go</button>
+      </div>
+      </div>
+ 
+    </form>
+  </div>
+  <!-- end:Main Form -->
+</div>
+
+</blockquote>
+</div>
+</div>
+{% endblock %}

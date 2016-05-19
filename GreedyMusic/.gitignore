@@ -1,0 +1,5 @@
+*.pyc
+*.pyo
+*.gitignore~
+db.sqlite3
+.env

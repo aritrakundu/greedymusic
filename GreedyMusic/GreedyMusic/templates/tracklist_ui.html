@@ -1,0 +1,166 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+
+<div class="container" id="track-container">
+<div class="container container-outer">
+    <div id="navigation" style="text-align: center">
+        <ul>
+            <li><a href="{{ url_tracklist_ui }}">Tracks</a></li>
+            <li><a href="{{ url_genrelist_ui }}">Genres</a></li>
+        </ul>
+    </div>
+    <blockquote class="quote-box">
+    <div class="row">    
+      <div class="input-group">
+        <div class="input-group-btn search-panel">
+              <button type="button" id="btn_filter" class="btn btn-default dropdown-toggle" 
+              data-toggle="dropdown">
+                <span id="search_concept">Filter by</span> <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu" role="menu" id="q_options">
+                <li><a value="/tracks/search/?q=title&amp;search_term=">Title</a></li>
+                <li><a value="/tracks/search/?q=genre&amp;search_term=">Genre</a></li>
+              </ul>
+        </div>
+          <input type="hidden" name="search_param" value="" id="search_param">         
+          <input type="text" class="form-control" name="x" placeholder="Search term..." 
+          id="search_bar">
+          <span class="input-group-btn">
+             <!--  <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button> -->
+              <button class="btn btn-default" type="button" onclick="doget()">
+                <span class="glyphicon glyphicon-search"></span>
+              </button>
+          </span>
+      </div>
+    </div>
+  
+
+      <!-- <div class="blog-post-actions"> -->
+      <p class="quotation-mark"> Soundtracks </p>
+      <hr/>
+      <div>
+        {% if tracks %}
+        {% for track in tracks %}
+        <div>
+          <p> {{ track.track_title }}&nbsp;[ {{ track.track_genre }} ]&nbsp;
+          {% if track.track_rating %} 
+            {{ track.track_rating }} stars
+          {% else %}
+            Unrated 
+          {% endif %}
+            <a href="/track/{{ track.id }}/" class="btn btn-default btn-xs btn-round btn-right" 
+            title="Edit SoundTrack">
+              <span class="glyphicon glyphicon-pencil"></span>
+            </a>
+          </p>
+        </div>
+        <hr/>
+        {% endfor %}
+        
+        {% else %}
+          <div>
+          <p> Tracklist empty</p>
+        </div>
+        <hr/>
+        {% endif%}
+        <!-- <div>
+          <p> Abraham Lincoln 
+            <a href="" class="btn btn-default btn-xs btn-round btn-right" 
+            title="Edit SoundTrack">
+              <span class="glyphicon glyphicon-pencil"></span>
+            </a>
+          </p>
+        </div>
+
+        <hr>
+
+        <div>
+          <p> Abraham Lincoln 
+            <a href="track/{{id}}" class="btn btn-default btn-xs btn-round btn-right" 
+            title="Edit SoundTrack">
+              <span class="glyphicon glyphicon-pencil"></span>
+            </a>
+          </p>
+        </div>
+      </div>
+      
+      <hr/> -->
+
+      <div class="bottom-row">
+      <button type="button" class="btn btn-default btn-xs btn-round btn-ctr" title="Add SoundTrack" 
+      id="add-btn" onclick="showdiv()">
+              <span class="glyphicon glyphicon-plus"></span>
+            </button>
+      </div>
+
+    </blockquote>
+</div>
+</div>
+
+<div class="container" id="add-form-container" style="display:none;">
+<div class="container container-outer">
+<blockquote class="quote-box">
+  <p class="quotation-mark"> Track Details </p>
+  <hr/> 
+  <div class="text-center" style="padding:10px 10px">
+  <!-- <div class="logo">login</div> -->
+  <!-- Main Form -->
+  <div class="login-form-1">
+    <form id="track_form" class="text-left" method="post" action="{{ url_add_track }}">
+    {% csrf_token %}
+      <div class="login-form-main-message"></div>
+      <div class="main-login-form">
+        <div class="login-group">
+          <div class="form-group">
+            
+            <label for="track_title" class="sr-only">Track Title</label>
+            <input type="text" class="form-control" id="track_title" name="track_title" 
+            placeholder="Track Title">
+          </div>
+
+          <div class="form-group">
+            <label for="track_genre" class="sr-only">Track Genre</label>
+            <input type="text" class="form-control" id="genre_name" name="genre_name" 
+            placeholder="Track Genre">
+          </div>
+
+          <div class="form-group">
+            <label for="track_rating" class="sr-only">Rating</label>
+            <label class="radio-inline" for="track_rating" id="track_rating" name="track_rating" >
+              <input name="track_rating" id="radios-0" value="1" type="radio">
+              1
+            </label> 
+            <label class="radio-inline" for="radios-1">
+              <input name="track_rating" id="radios-1" value="2" type="radio">
+              2
+            </label> 
+            <label class="radio-inline" for="radios-2">
+              <input name="track_rating" id="radios-2" value="3" type="radio">
+              3
+            </label> 
+            <label class="radio-inline" for="radios-3">
+              <input name="track_rating" id="radios-3" value="4" type="radio">
+              4
+          </label>
+          <label class="radio-inline" for="radios-4">
+              <input name="track_rating" id="radios-4" value="5" type="radio">
+              5
+          </label>
+        </div>
+      <div class="form-control">
+        <button type="submit" class="login-button">Go</button>
+      </div>
+      </div>
+ 
+    </form>
+  </div>
+  <!-- end:Main Form -->
+</div>
+
+</blockquote>
+</div>
+</div>
+
+{% endblock %}
